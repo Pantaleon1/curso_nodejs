@@ -7,6 +7,7 @@ const config = {
     database:process.env.DATABASE,
     connectionLimit: process.env.CONN_LIMIT,
 };
+console.log(config);
 
 const pool = mariadb.createPool(config);
 
