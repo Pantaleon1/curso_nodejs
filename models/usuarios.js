@@ -30,6 +30,14 @@ const usuariosQueries = {
        email=?
 
     `,
+    deleteUsuario: `
+    UPDATE
+       usuarios
+    SET
+       status=0
+    WHERE
+       email=?
+    `,
     getUsuarioByEmail: `
     SELECT
       *

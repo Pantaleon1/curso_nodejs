@@ -91,9 +91,25 @@ const usuariosPut = async (req = request, res = response) => {
 
 };
 
-const usuariosDelete =(req = request, res = response) => {
-    const {usuario, password} = req.query;
-    res.status(500).json({msg: "Hola Pantaleon desde DELETE", usuario, password}); };
+const usuariosDelete = async (req = request, res = response) => {
+    const {email} = req.query;
+    let conn; 
+
+    try {
+        conn = await pool.getConnection();
+
+        const usuarios = await conn.query(usuariosQueries.deleteUsuario, [email]);
+
+        res.json({ usuarios });
+    } catch (error){
+            console.log(error);
+            res
+            .status(500)
+            .json({msg: "Por favor contacte al administrador.", error});
+        } finally{
+                if (conn) conn.end();
+            }
+};
 
 const usuarioSignin = async (req = request, res = response)=>{
     const {email, password} = req.body;
