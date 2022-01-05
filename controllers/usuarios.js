@@ -150,3 +150,4 @@ module.exports = {
     usuariosDelete, 
     usuarioSignin,
 };
+//pantaleon
