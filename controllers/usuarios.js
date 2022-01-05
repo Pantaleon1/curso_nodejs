@@ -151,3 +151,4 @@ module.exports = {
     usuarioSignin,
 };
 
+//pantaleon
