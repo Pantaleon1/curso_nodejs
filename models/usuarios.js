@@ -52,3 +52,5 @@ const usuariosQueries = {
 };
 
 module.exports = usuariosQueries;
+
+//pantaleon
